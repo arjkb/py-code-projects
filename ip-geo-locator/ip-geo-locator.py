@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 def geo_locate(ip):
     try:
-        r = requests.get("https://tools.keycdn.com/geo.json?host=5.196.62.127")
+        r = requests.get("https://tools.keycdn.com/geo.json?host={}".format(ip))
         # r = requests.get()
     except Exception:
         return "Failed to establish connection"
