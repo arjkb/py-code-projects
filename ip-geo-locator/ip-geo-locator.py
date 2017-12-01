@@ -3,18 +3,14 @@ import requests
 
 from bs4 import BeautifulSoup
 
-
-
 def geo_locate(ip):
     try:
         r = requests.get("https://tools.keycdn.com/geo.json?host={}".format(ip))
-        # r = requests.get()
     except Exception:
         return "Failed to establish connection"
 
     if r.status_code != requests.codes.ok:
         return "not available"
-    
     return r.json()
 
 if __name__ == '__main__':
@@ -23,9 +19,15 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     location = geo_locate(args.ip)
+    if location['status'] == 'error':
+        print("Lookup failed!")
+        exit(1)
 
-    print(location['data']['geo']['country_name'])
+    geo = location['data']['geo']
+    isp = geo['isp'].strip()
+    city = geo['city'].strip()
+    region = geo['region'].strip()
+    country = geo['country_name'].strip()
 
+    print(" {}, {}, {}, {}".format(isp, city, region, country))
     print(" IP Location finder by KeyCDN https://tools.keycdn.com/geo")
-
-    # print(" City: ", location['city'])
