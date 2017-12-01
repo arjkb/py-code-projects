@@ -7,23 +7,25 @@ from bs4 import BeautifulSoup
 
 def geo_locate(ip):
     try:
-        r = requests.get('https://www.iplocation.net/')
+        r = requests.get("https://tools.keycdn.com/geo.json?host=5.196.62.127")
+        # r = requests.get()
     except Exception:
         return "Failed to establish connection"
 
     if r.status_code != requests.codes.ok:
         return "not available"
 
-    soup = BeautifulSoup(r.text, 'html.parser')
-    td = soup.find_all("td")
+    # soup = BeautifulSoup(r.text, 'html.parser')
+    # td = soup.find_all("td")
 
-    d = dict()
-    d['ip'] = td[0].string
-    d['country'] = td[1].string
-    d['region'] = td[2].string
-    d['city'] = td[3].string
-    d['isp'] = td[4].string
-    d['organization'] = td[5].string
+    # d = dict()
+    # d['ip'] = td[0].string
+    # d['country'] = td[1].string
+    # d['region'] = td[2].string
+    # d['city'] = td[3].string
+    # d['isp'] = td[4].string
+    # d['organization'] = td[5].string
+
 
     # print(td[0].string) # ip
     # print(td[1].string) # Country
@@ -31,7 +33,9 @@ def geo_locate(ip):
     # print(td[3].string) # City
     # print(td[4].string) # ISP
     # print(td[5].string) # Organization
-    return d
+    # # return d
+    # return ""
+    return r.json()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -40,4 +44,7 @@ if __name__ == '__main__':
 
     location = geo_locate(args.ip)
 
-    print(" City: ", location['city'])
+    print(location)
+    print(type(location))
+
+    # print(" City: ", location['city'])
