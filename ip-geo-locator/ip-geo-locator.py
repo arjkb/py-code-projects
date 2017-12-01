@@ -44,7 +44,8 @@ if __name__ == '__main__':
 
     location = geo_locate(args.ip)
 
-    print(location)
-    print(type(location))
+    print(location['data']['geo']['country_name'])
+
+    print(" IP Location finder by KeyCDN https://tools.keycdn.com/geo")
 
     # print(" City: ", location['city'])
