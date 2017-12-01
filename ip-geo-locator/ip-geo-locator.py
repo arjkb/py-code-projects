@@ -1,7 +1,8 @@
+# program to find the geographical location of an ip address
+# IP Location finder by KeyCDN https://tools.keycdn.com/geo
+
 import argparse
 import requests
-
-from bs4 import BeautifulSoup
 
 def geo_locate(ip):
     try:
