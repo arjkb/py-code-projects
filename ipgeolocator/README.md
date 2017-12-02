@@ -14,6 +14,10 @@ $ python ipgeolocator.py 64.106.111.81
 
 For further options, run `python ip-geo-locator.py --help`
 
+##### Pytest
+
+To run unit tests on the application, run `pytest` from the command line.
+
 ---
 
 IP Location finder by KeyCDN https://tools.keycdn.com/geo
