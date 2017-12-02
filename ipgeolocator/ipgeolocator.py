@@ -6,15 +6,19 @@ import requests
 
 def geo_locate(ip):
     if not is_valid(ip):
-        return "Invalid IP address"
+        print("Invalid IP address")
+        return None
 
     try:
         r = requests.get("https://tools.keycdn.com/geo.json?host={}".format(ip))
     except Exception:
-        return "Failed to establish connection"
+        print("Failed to establish connection")
+        return None
 
     if r.status_code != requests.codes.ok:
-        return "not available"
+        print("not available")
+        return None
+
     return r.json()
 
 def is_valid(ip):
@@ -31,7 +35,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     location = geo_locate(args.ip)
-    if location['status'] == 'error':
+    if location == None or location['status'] == 'error':
         print("Lookup failed!")
         exit(1)
 
