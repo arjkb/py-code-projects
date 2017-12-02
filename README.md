@@ -5,4 +5,4 @@ Feel free to use the projects for whatever you want subject to the license requi
 
 |#|Project Name|Description|
 |----|------------|-----------|
-|1|[ip-geo-locator](https://github.com/arjunkrishnababu96/py-code-projects/tree/master/ip-geo-locator)|CLI to find geographical location of an IP address.
+|1|[ip-geo-locator](https://github.com/arjunkrishnababu96/py-code-projects/tree/master/ipgeolocator)|CLI to find geographical location of an IP address.
