@@ -7,7 +7,7 @@ Simple python script to find geographical location of an IP address.
 To find the IP address of, say `64.106.111.81`, run:
 
 ```
-$ python ip-geo-locator.py 64.106.111.81
+$ python ipgeolocator.py 64.106.111.81
  University of New Mexico, Albuquerque, NM, United States
  IP Location finder by KeyCDN https://tools.keycdn.com/geo
 ```
