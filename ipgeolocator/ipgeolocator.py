@@ -5,6 +5,9 @@ import argparse
 import requests
 
 def geo_locate(ip):
+    if not is_valid(ip):
+        return "Invalid IP address"
+
     try:
         r = requests.get("https://tools.keycdn.com/geo.json?host={}".format(ip))
     except Exception:
