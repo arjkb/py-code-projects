@@ -6,7 +6,7 @@ import requests
 
 def geo_locate(ip):
     if not is_valid(ip):
-        print("Invalid IP address")
+        print("Invalid IPv4 address")
         return None
 
     try:
@@ -16,7 +16,7 @@ def geo_locate(ip):
         return None
 
     if r.status_code != requests.codes.ok:
-        print("not available")
+        print("Not available")
         return None
 
     return r.json()
@@ -31,7 +31,7 @@ def is_valid(ip):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("ip", help="ip address you wish to locate", type=str)
+    parser.add_argument("ip", help="IPv4 address you wish to locate", type=str)
     args = parser.parse_args()
 
     location = geo_locate(args.ip)
