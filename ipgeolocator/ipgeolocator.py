@@ -14,6 +14,10 @@ def geo_locate(ip):
         return "not available"
     return r.json()
 
+def is_valid(ip):
+    return ip * 2
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("ip", help="ip address you wish to locate", type=str)
