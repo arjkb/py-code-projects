@@ -15,8 +15,12 @@ def geo_locate(ip):
     return r.json()
 
 def is_valid(ip):
-    return ip * 2
-
+    try:
+        octets = list(map(int, ip.split('.')))
+    except Exception as e:
+        return False
+    else:
+        return (len(octets) == 4) and all(map(lambda x: 0 <= x <= 255, octets))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
